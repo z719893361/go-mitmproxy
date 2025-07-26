@@ -56,7 +56,7 @@ func newAttacker(proxy *Proxy) (*attacker, error) {
 		client: &http.Client{
 			Transport: &http.Transport{
 				Proxy:              proxy.realUpstreamProxy(),
-				ForceAttemptHTTP2:  true,
+				ForceAttemptHTTP2:  false,
 				DisableCompression: true, // To get the original response from the server, set Transport.DisableCompression to true.
 				TLSClientConfig: &tls.Config{
 					InsecureSkipVerify: proxy.Opts.SslInsecure,
